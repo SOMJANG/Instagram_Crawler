@@ -1,2 +1,2 @@
 # Instagram_Crawler
-인스타그램 크롤러 (Python, BeautifulSoup, Selenium)
+인스타그램 크롤러 (Python, Selenium)
