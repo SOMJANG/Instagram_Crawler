@@ -2,6 +2,7 @@
 <p align="center">Extract Data From Instagram Using Selenium/Python.</p>
 
 <p align="center">
+  <a href="https://bit.ly/3iaSD77">Detail Info</a> •
   <a href="#description">Description</a> •
   <a href="#install">Install Libraries</a> •
   <a href="#get-started">Get Started</a> •
@@ -37,20 +38,18 @@ The full documentation contains more detailed tutorials, but to get a taste of t
 Let's look at the easy example, `bart_easy.py`. You can run the example with following command :
 
 ```console
-python3 main.py --id=[user_id] \
---password=['user_password']\
---hash_tag=[hash_tag] \
---display=[0 or 1] \
---extract_num=[extract_num: int] \
---login_option=[instagram or facebook] \
---extract_file=[file name] \
---extract_tag_file=[tag file name] \
---driver_path=[chromedriver path]
+$ python3 main.py --id=[user_id] \
+  --password=['user_password']\
+  --hash_tag=[hash_tag] \
+  --display=[0 or 1] \
+  --extract_num=[extract_num: int] \
+  --login_option=[instagram or facebook] \
+  --extract_file=[file name] \
+  --extract_tag_file=[tag file name] \
+  --driver_path=[chromedriver path]
 ```
 
-It will start a server with 2 workers on 1 GPU. Each worker load a fine-tuned BART model for text summarization.
 
-Once the server is running, you can request a summary through Python :
 
 ```python
 # -*- coding:utf-8 -*-
