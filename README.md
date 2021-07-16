@@ -1,4 +1,4 @@
-<h1 align="center">👨🏻‍💻Instagram_Crawler👨🏻‍💻</h1>
+<h1 align="center">Instagram_Crawler</h1>
 <p align="center">Extract Data From Instagram Using Selenium/Python.</p>
 
 <p align="center">
@@ -18,6 +18,8 @@
 <h2 align="center">Description</h2>
 
 **Instagram Crawler** is a python module for crawling Instagram data.
+
+⚠️ _If you access more than a certain number of posts on Instagram, the posts are no longer loaded. Therefore, about 100 to 300 posts can be crawled._
 
 <h2 align="center">Install</h2>
 
