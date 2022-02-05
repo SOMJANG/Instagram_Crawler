@@ -1,5 +1,6 @@
 from selenium import webdriver as wd
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # from pyvirtualdisplay import Display
@@ -147,7 +148,9 @@ def click_more_comment_button(driver):
 def click_next_arrow_button(driver):
     try:
         WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CSS_SELECTOR, NEXT_ARROW_BTN_CSS_1)))
-        driver.find_element_by_css_selector(NEXT_ARROW_BTN_CSS_2).click()
+        time.sleep(5.0)
+        next_arrow_btn = driver.find_element_by_css_selector(NEXT_ARROW_BTN_CSS_1)
+        next_arrow_btn.send_keys(Keys.ENTER)
         check_arrow = True
     except:
         check_arrow = False
