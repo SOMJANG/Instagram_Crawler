@@ -127,6 +127,7 @@ def crawling_instagram(args):
     save_file_name, save_tag_file_name = args.extract_file, args.extract_tag_file
 
     is_login_success, is_move_success, is_first_img_click_success = False, False, False
+    is_save_file_success, is_save_tag_file_success = False, False
 
     driver = make_chrome_driver(driver_path=driver_path, display_option=display_option)
 
