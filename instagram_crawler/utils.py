@@ -138,9 +138,11 @@ def click_more_comment_button(driver):
     random_sleep_time = make_radom_sleep_time(start=1, end=3)
     while True:
         try:
-            more_btn = driver.find_element_by_css_selector(COMMENT_MORE_BTN)
-            more_btn.click()
-            time.sleep(random_sleep_time)
+            more_btn_list = driver.find_element_by_css_selector(COMMENT_MORE_BTN)
+            for more_btn in more_btn_list:
+                if '답글 보기' in more_btn.text:
+                    more_btn.click()
+                    time.sleep(random_sleep_time)
         except:
             break
 
