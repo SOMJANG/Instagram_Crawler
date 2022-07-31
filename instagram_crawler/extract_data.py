@@ -54,15 +54,14 @@ def get_main_text(driver, instagram_tags):
         main_text = None
 
     try:
-        data = driver.find_element_by_css_selector(HASH_TAG_CSS)
-        tag_raw = data.text
-        tags = re.findall('#[A-Za-z0-9가-힣]+', tag_raw)
-        tag = ''.join(tags).replace("#", " ")
-
-        tag_data = tag.split()
-
-        for tag_one in tag_data:
-            instagram_tags.append(tag_one)
+        tag_list = driver.find_elements_by_css_selector(HASH_TAG_CSS) 
+        
+        for tag in tag_list:
+            tag_raw = tag.text
+            tags = re.findall('#[A-Za-z0-9가-힣]+', tag_raw) 
+            extract_tag = ''.join(tags).replace("#"," ") # "#" 제거
+            
+            instagram_tags.append(extract_tag)
     except:
         pass
 
@@ -126,7 +125,7 @@ def crawling_instagram(args):
     driver_path, display_option = args.driver_path, args.display
     save_file_name, save_tag_file_name = args.extract_file, args.extract_tag_file
 
-    is_login_success, is_move_success, is_first_img_click_success = False, False, False
+    is_login_success, is_move_suceess, is_first_img_click_success = False, False, False
     is_save_file_success, is_save_tag_file_success = False, False
 
     driver = make_chrome_driver(driver_path=driver_path, display_option=display_option)
@@ -148,6 +147,8 @@ def crawling_instagram(args):
 
         while True:
             if count_extract_num > wish_num or not check_arrow:
+                driver.close()
+                driver.quit()
                 break
 
             delay_until_next_step(start=5, end=8)
@@ -187,7 +188,4 @@ def crawling_instagram(args):
                                                              save_file_name=save_file_name)
         is_save_tag_file_success = save_extract_tag_data_to_csv_file(instagram_tags=instagram_tags,
                                                                      save_file_name_tag=save_tag_file_name)
-    driver.close()
-    driver.quit()
-
     return is_save_file_success, is_save_tag_file_success
